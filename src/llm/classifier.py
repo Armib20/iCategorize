@@ -159,13 +159,19 @@ Respond with a JSON array of the most relevant category names (3-5 max):"""
             print(f"🎯 AI-generated candidates: {valid_candidates}")
         
         # Step 2: Ask AI to choose the best from candidates
-        choice_prompt = f"""Choose the single best category for this product:
+        choice_prompt = f"""Choose the single best category for this product from the given candidates:
 
 Product: {product_name}
 
-Candidates: {json.dumps(valid_candidates)}
+Available candidates: {json.dumps(valid_candidates)}
 
-Respond with only the category name or 'MISC':"""
+Instructions:
+- Choose the best matching category from the candidates above
+- Only return 'MISC' if the product really doesn't fit any of the candidates
+- Be generous - if there's a reasonable match, choose it
+- Consider that "cereal" matches cereal categories, "milk" matches milk categories, etc.
+
+Respond with only the exact category name:"""
         
         resp = client.chat.completions.create(
             model=model,

@@ -59,20 +59,28 @@ Respond with JSON: {{"intent": "...", "entities": {{...}}}}"""
             result = json.loads(response.choices[0].message.content.strip())
             return result.get("intent", "help"), result.get("entities", {})
             
-        except (json.JSONDecodeError, Exception):
-            # Fallback to simple pattern matching
+        except (json.JSONDecodeError, Exception) as e:
+            # If OpenAI fails for any reason, fallback to pattern matching
+            # This ensures the agent always works even without OpenAI access
             return self._fallback_intent_analysis(user_input)
     
     def _fallback_intent_analysis(self, user_input: str) -> Tuple[str, Dict[str, Any]]:
         """Simple pattern-based fallback for intent analysis."""
-        user_lower = user_input.lower()
+        user_lower = user_input.lower().strip()
         
-        # Check for classification requests
+        # Check for explicit classification requests
         if any(word in user_lower for word in ["classify", "categorize", "what category"]):
-            # Look for product names in quotes or after common patterns
+            # Look for product names in quotes or after "classify"
             product_match = re.search(r'["\']([^"\']+)["\']', user_input)
             if product_match:
                 return "classify_single", {"product_name": product_match.group(1)}
+            
+            # Look for product after "classify" keyword
+            classify_match = re.search(r'classify\s+(.+)', user_lower)
+            if classify_match:
+                product_name = classify_match.group(1).strip()
+                if product_name and product_name not in ["these", "this", "that"]:
+                    return "classify_single", {"product_name": product_name}
             
             # Look for lists
             if any(word in user_lower for word in ["list", "these", "batch"]):
@@ -87,6 +95,23 @@ Respond with JSON: {{"intent": "...", "entities": {{...}}}}"""
         # Check for explanation requests
         if any(word in user_lower for word in ["why", "explain", "how", "reasoning"]):
             return "explain", {}
+        
+        # Check for simple product names (if it looks like a food product)
+        if len(user_input.split()) <= 4 and not any(word in user_lower for word in ["help", "stats", "export", "show", "tell"]):
+            # Common food product indicators
+            food_indicators = [
+                "milk", "bread", "cheese", "butter", "yogurt", "juice", "water", "soda",
+                "cereal", "pasta", "rice", "beans", "nuts", "fruit", "apple", "banana",
+                "chicken", "beef", "fish", "pork", "egg", "flour", "sugar", "salt",
+                "oil", "sauce", "honey", "jam", "tea", "coffee", "wine", "beer",
+                "chocolate", "candy", "cookie", "cake", "ice", "cream", "pickle",
+                "organic", "fresh", "frozen", "canned", "whole", "skim", "raw"
+            ]
+            
+            # If input contains food-related words or looks like a product name
+            if (any(indicator in user_lower for indicator in food_indicators) or
+                re.match(r'^[a-zA-Z\s\d\-&\'\.\,]+$', user_input)):
+                return "classify_single", {"product_name": user_input.strip()}
         
         return "help", {}
     
