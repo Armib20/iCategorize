@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import io
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 import os
 from datetime import datetime
 import json
@@ -33,6 +33,132 @@ if 'chat_history' not in st.session_state:
 
 if 'classification_results' not in st.session_state:
     st.session_state.classification_results = []
+
+def classify_products_with_ground_truth(
+    products: List[str], 
+    ground_truth: Optional[List[str]] = None,
+    **kwargs
+) -> List[ClassificationResult]:
+    """Classify products with optional ground truth comparison."""
+    if not products:
+        return []
+    
+    results = []
+    progress_bar = st.progress(0)
+    status_text = st.empty()
+    
+    # Set up accuracy tracking if ground truth is provided
+    accuracy_container = None
+    accuracy_metrics = None
+    if ground_truth:
+        accuracy_container = st.container()
+        with accuracy_container:
+            st.subheader("🎯 Real-time Accuracy Tracking")
+            accuracy_metrics = {
+                'total_processed': 0,
+                'correct_predictions': 0,
+                'running_accuracy': 0.0
+            }
+            
+            # Create columns for metrics display
+            col1, col2, col3 = st.columns(3)
+            metric_processed = col1.empty()
+            metric_accuracy = col2.empty()
+            metric_correct = col3.empty()
+            
+            # Initialize metrics display
+            metric_processed.metric("Processed", "0")
+            metric_accuracy.metric("Accuracy", "0.0%")
+            metric_correct.metric("Correct", "0/0")
+    
+    for i, product in enumerate(products):
+        status_text.text(f"Classifying: {product}")
+        
+        # Get classification result
+        result = st.session_state.agent.classify_product(
+            product, 
+            explain=kwargs.get('include_reasoning', True),
+            method=kwargs.get('classification_method', 'hybrid')
+        )
+        results.append(result)
+        
+        # Update accuracy tracking if ground truth is available
+        if ground_truth and i < len(ground_truth):
+            accuracy_metrics['total_processed'] = i + 1
+            
+            # Check if prediction is correct
+            if result.category == ground_truth[i]:
+                accuracy_metrics['correct_predictions'] += 1
+            
+            # Calculate running accuracy
+            accuracy_metrics['running_accuracy'] = (
+                accuracy_metrics['correct_predictions'] / accuracy_metrics['total_processed']
+            )
+            
+            # Update metrics display
+            with accuracy_container:
+                metric_processed.metric(
+                    "Processed", 
+                    f"{accuracy_metrics['total_processed']}"
+                )
+                metric_accuracy.metric(
+                    "Accuracy", 
+                    f"{accuracy_metrics['running_accuracy']:.1%}",
+                    delta=f"{accuracy_metrics['running_accuracy']:.1%}" if i == 0 else None
+                )
+                metric_correct.metric(
+                    "Correct", 
+                    f"{accuracy_metrics['correct_predictions']}/{accuracy_metrics['total_processed']}"
+                )
+        
+        progress_bar.progress((i + 1) / len(products))
+    
+    status_text.text("✅ Classification complete!")
+    progress_bar.empty()
+    
+    # Show final accuracy summary if ground truth was provided
+    if ground_truth and accuracy_metrics:
+        with accuracy_container:
+            st.success(
+                f"🎉 Final Accuracy: {accuracy_metrics['running_accuracy']:.1%} "
+                f"({accuracy_metrics['correct_predictions']}/{accuracy_metrics['total_processed']})"
+            )
+            
+            # Show detailed breakdown
+            with st.expander("📊 Detailed Accuracy Breakdown"):
+                # Create a dataframe showing correct/incorrect predictions
+                breakdown_data = []
+                for i, (product, result) in enumerate(zip(products, results)):
+                    if i < len(ground_truth):
+                        is_correct = result.category == ground_truth[i]
+                        breakdown_data.append({
+                            'Product': product,
+                            'Predicted': result.category,
+                            'Ground Truth': ground_truth[i],
+                            'Correct': '✅' if is_correct else '❌',
+                            'Confidence': f"{result.confidence:.1%}"
+                        })
+                
+                if breakdown_data:
+                    df_breakdown = pd.DataFrame(breakdown_data)
+                    st.dataframe(df_breakdown, use_container_width=True)
+                    
+                    # Show error analysis
+                    incorrect_results = [row for row in breakdown_data if row['Correct'] == '❌']
+                    if incorrect_results:
+                        st.write("**Common Misclassifications:**")
+                        error_patterns = {}
+                        for row in incorrect_results:
+                            pattern = f"{row['Ground Truth']} → {row['Predicted']}"
+                            error_patterns[pattern] = error_patterns.get(pattern, 0) + 1
+                        
+                        for pattern, count in sorted(error_patterns.items(), key=lambda x: x[1], reverse=True):
+                            st.write(f"- {pattern}: {count} occurrences")
+                            
+                        # Suggest improvements
+                        st.info("💡 **Tip:** These misclassifications can often be improved by using more specific product descriptions, or by switching classification methods (hybrid vs semantic).")
+    
+    return results
 
 def classify_products_from_data(products: List[str]) -> List[ClassificationResult]:
     """Classify a list of products and return results."""
@@ -140,6 +266,23 @@ def main():
             help="Hybrid uses two-step AI reasoning, semantic uses direct classification"
         )
         
+        # Debug mode
+        debug_mode = st.checkbox(
+            "Enable Debug Mode",
+            value=False,
+            help="Shows detailed classification decisions and AI reasoning process"
+        )
+        
+        # Confidence threshold
+        confidence_threshold = st.slider(
+            "Minimum Confidence Threshold",
+            min_value=0.0,
+            max_value=1.0,
+            value=0.7,
+            step=0.05,
+            help="Classifications below this confidence will be flagged for review"
+        )
+        
         st.divider()
         
         # Statistics
@@ -223,6 +366,7 @@ def main():
             # Process uploaded file
             try:
                 products = []
+                ground_truth = None  # Initialize ground_truth variable
                 
                 if uploaded_file.name.endswith('.csv'):
                     df = pd.read_csv(uploaded_file)
@@ -236,15 +380,39 @@ def main():
                             df.columns.tolist()
                         )
                         products = df[product_column].dropna().tolist()
+                        
+                        # Optional ground truth selection
+                        enable_ground_truth = st.checkbox(
+                            "📊 Enable accuracy benchmarking (optional)",
+                            help="Select if you have a column with correct FDA categories for comparison"
+                        )
+                        
+                        ground_truth = None
+                        if enable_ground_truth:
+                            other_columns = [col for col in df.columns.tolist() if col != product_column]
+                            if other_columns:
+                                ground_truth_column = st.selectbox(
+                                    "Select the ground truth column:",
+                                    other_columns,
+                                    help="Column containing the correct FDA categories"
+                                )
+                                ground_truth = df[ground_truth_column].dropna().tolist()
+                                st.success(f"🎯 Ground truth benchmarking enabled with column: **{ground_truth_column}**")
+                                st.info("Real-time accuracy tracking will be shown during processing!")
+                            else:
+                                st.warning("No other columns available for ground truth selection.")
                     else:
                         products = df.iloc[:, 0].dropna().tolist()
+                        ground_truth = None
                 
                 elif uploaded_file.name.endswith('.txt'):
                     content = str(uploaded_file.read(), "utf-8")
                     products = [line.strip() for line in content.split('\n') if line.strip()]
+                    ground_truth = None  # Text files don't support ground truth
                     st.write(f"**Found {len(products)} products in text file**")
                     with st.expander("Preview products"):
                         st.write(products[:10])  # Show first 10
+                    st.info("💡 For accuracy tracking, upload CSV/Excel with ground_truth column")
                 
                 elif uploaded_file.name.endswith('.xlsx'):
                     df = pd.read_excel(uploaded_file)
@@ -258,8 +426,32 @@ def main():
                             df.columns.tolist()
                         )
                         products = df[product_column].dropna().tolist()
+                        
+                        # Optional ground truth selection
+                        enable_ground_truth = st.checkbox(
+                            "📊 Enable accuracy benchmarking (optional)",
+                            help="Select if you have a column with correct FDA categories for comparison",
+                            key="xlsx_ground_truth"
+                        )
+                        
+                        ground_truth = None
+                        if enable_ground_truth:
+                            other_columns = [col for col in df.columns.tolist() if col != product_column]
+                            if other_columns:
+                                ground_truth_column = st.selectbox(
+                                    "Select the ground truth column:",
+                                    other_columns,
+                                    help="Column containing the correct FDA categories",
+                                    key="xlsx_ground_truth_col"
+                                )
+                                ground_truth = df[ground_truth_column].dropna().tolist()
+                                st.success(f"🎯 Ground truth benchmarking enabled with column: **{ground_truth_column}**")
+                                st.info("Real-time accuracy tracking will be shown during processing!")
+                            else:
+                                st.warning("No other columns available for ground truth selection.")
                     else:
                         products = df.iloc[:, 0].dropna().tolist()
+                        ground_truth = None
                 
                 # Classification options
                 col1, col2, col3 = st.columns(3)
@@ -292,23 +484,22 @@ def main():
                     if products:
                         limited_products = products[:max_products]
                         
-                        # Run classification
-                        results = []
-                        progress_bar = st.progress(0)
-                        status_text = st.empty()
+                        # Prepare ground truth if available and limit it to match products
+                        limited_ground_truth = None
+                        if ground_truth:
+                            limited_ground_truth = ground_truth[:max_products]
+                            # Ensure lengths match
+                            min_length = min(len(limited_products), len(limited_ground_truth))
+                            limited_products = limited_products[:min_length]
+                            limited_ground_truth = limited_ground_truth[:min_length]
                         
-                        for i, product in enumerate(limited_products):
-                            status_text.text(f"Classifying: {product}")
-                            result = st.session_state.agent.classify_product(
-                                product, 
-                                explain=include_reasoning,
-                                method=classification_method
-                            )
-                            results.append(result)
-                            progress_bar.progress((i + 1) / len(limited_products))
-                        
-                        status_text.text("✅ Classification complete!")
-                        progress_bar.empty()
+                        # Run classification with ground truth support
+                        results = classify_products_with_ground_truth(
+                            limited_products,
+                            ground_truth=limited_ground_truth,
+                            include_reasoning=include_reasoning,
+                            classification_method=classification_method
+                        )
                         
                         # Store results
                         st.session_state.classification_results.extend(results)
@@ -358,22 +549,13 @@ def main():
             products = [line.strip() for line in manual_products.split('\n') if line.strip()]
             
             if products:
-                results = []
-                progress_bar = st.progress(0)
-                status_text = st.empty()
-                
-                for i, product in enumerate(products):
-                    status_text.text(f"Classifying: {product}")
-                    result = st.session_state.agent.classify_product(
-                        product, 
-                        explain=True,
-                        method=classification_method
-                    )
-                    results.append(result)
-                    progress_bar.progress((i + 1) / len(products))
-                
-                status_text.text("✅ Classification complete!")
-                progress_bar.empty()
+                # Manual entries don't have ground truth
+                results = classify_products_with_ground_truth(
+                    products,
+                    ground_truth=None,
+                    include_reasoning=True,
+                    classification_method=classification_method
+                )
                 
                 # Store and display results
                 st.session_state.classification_results.extend(results)

@@ -33,8 +33,9 @@ E-commerce sellers face a critical challenge: **product categorization chaos**.
 - **📊 Batch Processing**: Handle thousands of products efficiently
 - **🌐 Web Interface**: User-friendly Streamlit app for interactive classification
 - **🔧 Flexible API**: Programmatic access for integration into existing systems
-- **📈 Continuous Learning**: System improves with usage patterns
+- **📈 Continuous Learning**: System improves with usage patterns  
 - **📄 Multiple Formats**: Support for CSV, Excel, and text file uploads
+- **🎯 Real-time Accuracy Tracking**: Compare predictions against ground truth with live metrics
 
 ## 🎮 Quick Start
 
@@ -78,6 +79,13 @@ python tests/test_agent.py
 2. Select the column containing product names
 3. Configure processing options
 4. Download classified results
+
+**Accuracy Tracking** - Evaluate performance with ground truth:
+1. Upload a CSV/Excel file with both product names and correct FDA categories
+2. Select your product column, then enable "📊 Enable accuracy benchmarking"
+3. Choose which column contains the ground truth categories
+4. Watch real-time accuracy metrics update as each product is classified
+5. Review detailed accuracy breakdown and error patterns
 
 ### Programmatic API
 ```python

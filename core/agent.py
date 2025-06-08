@@ -272,10 +272,49 @@ class SimplifiedProductClassificationAgent:
             other_categories = [c for c in category_names if c != category][:3]
             alternatives = other_categories
         
-        # Simple confidence based on category match
-        confidence = 0.95 if category != "MISC" else 0.6
+        # Improved confidence calculation
+        confidence = self._calculate_confidence(product_name, category)
         
         return reasoning, alternatives, confidence
+    
+    def _calculate_confidence(self, product_name: str, category: str) -> float:
+        """Calculate classification confidence based on various factors."""
+        base_confidence = 0.85
+        
+        # Reduce confidence for MISC category
+        if category == "MISC":
+            return 0.3
+        
+        # Increase confidence for specific matches
+        product_lower = product_name.lower()
+        
+        # High confidence indicators
+        high_confidence_patterns = {
+            "Juices, nectars, fruit drinks": ["juice", "nectar", "fruit drink"],
+            "Juices, all varieties": ["baby juice", "infant juice", "gerber"],
+            "Cheese, grated hard, e.g., Parmesan, Romano": ["grated", "parmesan", "romano"],
+            "Pickles, all types": ["pickle", "pickled"],
+            "Milk, milk-based drinks, e.g., instant breakfast, meal replacement, cocoa": ["milk", "dairy"]
+        }
+        
+        if category in high_confidence_patterns:
+            if any(pattern in product_lower for pattern in high_confidence_patterns[category]):
+                base_confidence = min(0.95, base_confidence + 0.1)
+        
+        # Reduce confidence for ambiguous cases
+        ambiguous_indicators = ["variety", "mixed", "assorted", "multi"]
+        if any(indicator in product_lower for indicator in ambiguous_indicators):
+            base_confidence *= 0.8
+        
+        # Reduce confidence for very short product names (likely incomplete)
+        if len(product_name.split()) <= 1:
+            base_confidence *= 0.7
+        
+        # Increase confidence for products with size/packaging info
+        if any(indicator in product_lower for indicator in ['oz', 'lb', 'gallon', 'quart', 'pkg', 'pack']):
+            base_confidence = min(0.95, base_confidence + 0.05)
+        
+        return round(base_confidence, 2)
     
     def get_stats(self) -> Dict[str, Any]:
         """Get session statistics."""

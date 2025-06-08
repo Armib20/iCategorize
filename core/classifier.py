@@ -11,6 +11,7 @@ import functools
 import json
 import pathlib
 from typing import Dict, List
+import re
 
 import dotenv
 import openai
@@ -18,50 +19,24 @@ import openai
 # Load env vars from .env if present – no error if file is missing.
 dotenv.load_dotenv()
 
-# Try multiple possible paths for the FDA categories file
-def _get_fda_json_path():
-    """Get the path to FDA categories JSON with fallbacks for different environments."""
-    
-    # Try the most likely paths in order
-    possible_paths = [
-        # Development: relative to repo root
-        pathlib.Path("data/fda_categories.json"),
-        # Streamlit Cloud: absolute deployment path
-        pathlib.Path("/mount/src/icategorize/data/fda_categories.json"),
-    ]
-    
-    for path in possible_paths:
-        if path.exists():
-            return path
-    
-    # If none found, return the first path for error reporting
-    return possible_paths[0]
-
-FDA_JSON = _get_fda_json_path()
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+FDA_JSON = ROOT / "data" / "fda_categories.json"
 
 
 @functools.lru_cache(maxsize=1)
 def _load_fda_categories() -> Dict[str, List[str]]:
     """Load FDA categories and descriptions."""
-    # First try the global FDA_JSON path
     try:
         with FDA_JSON.open("r", encoding="utf-8") as f:
             return json.load(f)
     except FileNotFoundError:
-        # Try to find the file again with fresh path resolution
-        fda_json_path = _get_fda_json_path()
-        try:
-            with fda_json_path.open("r", encoding="utf-8") as f:
+        # Try alternative path
+        alt_path = pathlib.Path("data/fda_categories.json")
+        if alt_path.exists():
+            with alt_path.open("r", encoding="utf-8") as f:
                 return json.load(f)
-        except FileNotFoundError:
-            # If still not found, provide a helpful error message
-            raise FileNotFoundError(
-                f"FDA categories file not found. Tried paths:\n"
-                f"- {fda_json_path}\n"
-                f"Please ensure the data/fda_categories.json file is included in your deployment.\n"
-                f"Current working directory: {pathlib.Path.cwd()}\n"
-                f"Script location: {pathlib.Path(__file__).resolve()}"
-            )
+        return {}
+
 
 
 def classify_llm_semantic(product_name: str, *, model: str = "gpt-4o", temperature: float = 0.0, debug: bool = False) -> str:
@@ -82,9 +57,19 @@ def classify_llm_semantic(product_name: str, *, model: str = "gpt-4o", temperatu
 
 Your task: Given a product name, determine which FDA food category it belongs to.
 
+CRITICAL GUIDELINES:
+1. ALWAYS read product descriptions carefully to distinguish target audience
+2. Many categories have INFANT/BABY versions and GENERAL consumption versions - choose correctly:
+   - "Juices, all varieties" = ONLY for babies/infants up to 12 months
+   - "Juices, nectars, fruit drinks" = for general consumption (adults, children, etc.)
+3. Look for size indicators (64oz, gallon, etc.) - large sizes are NEVER for infants
+4. Look for terms like "conventional", "organic", "family size" - these indicate general consumption
+5. If no age specification is given and it's a standard product, assume general consumption
+6. Be precise about product types (grated cheese vs regular cheese, different milk types, etc.)
+
 Process:
-1. Understand what the product actually IS (not just keyword matching)
-2. Consider product variants (e.g., "Whole Milk" is milk, "Raw Pecans" are nuts)
+1. Understand what the product actually IS and WHO it's for
+2. Consider product variants and target audience
 3. Match to the most appropriate FDA category based on semantic meaning
 4. If genuinely unsure, return 'MISC'
 
@@ -152,8 +137,17 @@ def classify_llm_hybrid(product_name: str, *, model: str = "gpt-4o", temperature
 
 Product: {product_name}
 
+IMPORTANT CONSIDERATIONS:
+- Distinguish between infant/baby products and general consumption products
+- Large package sizes (64oz, gallon, etc.) indicate general consumption, NOT infant products
+- Terms like "conventional", "organic", "family size" indicate general consumption
+- "Juices, all varieties" is ONLY for baby/infant juices (up to 12 months)
+- "Juices, nectars, fruit drinks" is for general consumption juices
+- Consider product size, packaging, and target audience
+
 Think about:
 - What type of food/product this is
+- WHO the target consumer is (infant vs general public)
 - Similar products and their categories  
 - Product variants (e.g., "Whole Milk" → milk categories)
 
@@ -200,11 +194,18 @@ Product: {product_name}
 
 Available candidates: {json.dumps(valid_candidates)}
 
+CRITICAL DECISION FACTORS:
+- Target audience: Is this for infants/babies (up to 12 months) or general consumption?
+- Package size: Large sizes (64oz, gallon) are NEVER for infants
+- Product descriptors: "conventional", "organic", "family size" = general consumption
+- Default assumption: Unless clearly marked for babies/infants, assume general consumption
+
 Instructions:
-- Choose the best matching category from the candidates above
+- Choose the most specific and appropriate category from the candidates above
+- Distinguish carefully between infant/baby categories and general consumption categories
+- Consider package size and target audience indicators
 - Only return 'MISC' if the product really doesn't fit any of the candidates
-- Be generous - if there's a reasonable match, choose it
-- Consider that "cereal" matches cereal categories, "milk" matches milk categories, etc.
+- Be precise - if there's a specific match, choose it over general categories
 
 Respond with only the exact category name:"""
         
