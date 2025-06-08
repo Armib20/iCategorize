@@ -92,6 +92,13 @@ Your app will be available at: `https://your-app-name.streamlit.app`
 - Make sure you added the API key to Streamlit Cloud secrets
 - Format: `OPENAI_API_KEY = "sk-your-key-here"`
 
+**"No such file or directory: fda_categories.json"**
+- This was fixed with robust path resolution
+- The app now automatically detects the correct path:
+  - Development: `data/fda_categories.json`
+  - Streamlit Cloud: `/mount/src/icategorize/data/fda_categories.json`
+- Run `python debug_deployment.py` to diagnose path issues
+
 **"Module not found" errors**
 - The app should work out of the box with the current structure
 - All imports are relative and cloud-compatible
