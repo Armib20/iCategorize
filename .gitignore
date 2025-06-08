@@ -1,12 +1,78 @@
+# --- Python Environment
 .venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# --- Data
-
+# --- Data & Cache
 data/
+*.csv
+*.json
+*.parquet
+*.pickle
+*.pkl
 
 # --- Notebooks
 notebooks/
+*.ipynb_checkpoints/
 
-# --- Environment variables
-
+# --- Environment variables & API keys
 .env
+.env.local
+.env.production
+.env.development
+*.key
+
+# --- AI Agent specific
+agent_sessions/
+classifications_*.json
+classifications_*.csv
+memory_*.json
+session_*.log
+
+# --- Logs
+*.log
+logs/
+agent.log
+
+# --- IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# --- Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# --- Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
