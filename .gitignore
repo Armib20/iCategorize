@@ -1,0 +1,12 @@
+.venv/
+
+# --- Data
+
+data/
+
+# --- Notebooks
+notebooks/
+
+# --- Environment variables
+
+.env
