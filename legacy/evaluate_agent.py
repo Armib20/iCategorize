@@ -151,6 +151,19 @@ def analyze_errors(results: List[EvaluationResult]) -> None:
         print()
 
 
+def enhanced_classify(product_name: str):
+    # Rule-based overrides for edge cases
+    if "chips" in product_name.lower() and any(fruit in product_name.lower() 
+                                             for fruit in ["banana", "apple", "fruit"]):
+        return "snack_chips_category"
+    
+    if "juice" in product_name.lower() and "100%" in product_name:
+        return "pure_juice_category" 
+    
+    # Fall back to AI classification
+    return ai_classify(product_name)
+
+
 def main():
     """Main evaluation function."""
     
@@ -164,7 +177,7 @@ def main():
     
     try:
         # Load test data
-        test_data = load_test_data()
+        test_data = load_test_data("data/samples/blueberries_eval.csv")
         print(f"📄 Loaded {len(test_data)} test products")
         print()
         
