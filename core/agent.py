@@ -220,7 +220,7 @@ class SimplifiedProductClassificationAgent:
         else:
             # General response
             return AgentResponse(
-                message="I'm an FDA product classification assistant. I can help you classify food products into FDA categories. Try asking me to classify a specific product!",
+                message="I'm an FDA product classification assistant. I can help you classify food products into FDA categories. Try asking me to classify a specific product! Say Classify [product name] to get started.",
                 results=[],
                 suggestions=[
                     "Classify [product name]",
