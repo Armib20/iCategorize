@@ -21,13 +21,19 @@ wheels/
 .installed.cfg
 *.egg
 
-# --- Data & Cache
-data/
+# --- Data & Cache (exclude most data files but keep essential ones)
+data/interim/
+data/samples/
+data/processed/
+data/raw/
+# Keep data/fda_categories.json - it's essential for the app
 *.csv
-*.json
 *.parquet
 *.pickle
 *.pkl
+# Exclude JSON files except for the essential FDA categories
+*.json
+!data/fda_categories.json
 
 # --- Notebooks
 notebooks/

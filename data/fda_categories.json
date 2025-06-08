@@ -1,0 +1,416 @@
+{
+  "Cereal, dry Instant": [
+    "All dry Instant cereal, regular and high protein, with or without fruit. which have been specially formulated or processed for use by infants up to 12 months of age."
+  ],
+  "Cereal, prepared, ready-to-serve": [
+    "All ready~to~serve (e.g. prepared and jarred) cereal, regular and high protein, with or without fruit, which have been specially formulated or processed for use by infants up to 12 months of age."
+  ],
+  "Other cereal and grain products. dry ready~to~eat, e.g., ready~to~eat cereals, cookie, teething biscuits, and toasts": [
+    "Teething biscuits, cookies, pretzels, toasts, zwieback, and any other similar cereal-grain products which have been specially formulated or processed for use by infants up to 12 months of age, and ready~to~eat cereals which ha'~ been specially formulated Of processed for use by Infants and/or toddlers one through three year of age."
+  ],
+  "Dinners, desserts, fruits, vegetables or soups, dry mix": [
+    "Dry instant dinners, dessert., fruits. vegetables, and soups which have been specially formulated or processed for use by infants up to 12 months of age (e.g., macaroni and cheese dinner mixes. cobbler mixes, pudding mixes, fruit mixes, carrots with rice mixes)."
+  ],
+  "Dinners, desserts, fruits, vegetables or soups, ready~to~serve, junior type": [
+    "Ready~to~serve (e.g.. prepared and jarred) dinners, desserts, fruits. vegetables, and soups which have been specially formulated or processed for use by older infants (e.g., 9 months or older). The following products belong to this category: products labeled as \"junior;\" products labeled es \"stage 3\" or any other descriptive terms which indicate that the product is intended for use by older infants."
+  ],
+  "Dinners, desserts, fruits, vegetables or soups, ready~to~serve, strained type": [
+    "Ready~to~serve (e.g., prepared end jarred) dinners, desserts, fruits, vegetables, and soups which ha~ been specially formulated or processed for use by younger infants (e.g., less then 9 months). The following products belong to this category: products labeled as \"strained;\" products labeled as \"stage 1 - or \"stage 2;\" products which bear any other descriptive terms which indicate that the product is intended for use by younger infants; and products labeled as \"baby food\" or not specified as to the target age of the infants."
+  ],
+  "Dinners, stew or soups for toddlers, ready-to-serve": [
+    "Ready-to-serve (e.g., prepared and jarred)dinners, stews, and soups which have been specially formulated or processed for consumption by young children one through three years of age. The following products belong to this category: products labeled as \"toddler\", \"table time\", \"graduate,\" and any other descriptive terms which indicate that the product is specially formulated or processed for use by toddlers."
+  ],
+  "Fruits for toddlers, ready-to-serve": [
+    "Ready-to-serve (e.g., prepared and jarred) fruits which have been specially formulated or processed for consumption by young children one through three years of age. The following products belong to this category: products labeled as \"toddler,\" \"table time,\" \"graduates,\" \"finger foods,\" and any other descriptive terms which indicate the the product is specially formulated or processed for use by toddlers."
+  ],
+  "Vegetables for toddlers, ready-to-serve": [
+    "Ready-to-serve (e.g., prepared and jarred) vegetables which have been specially formulated or processed for consumption by young children one through three years of age. The following products belong to this category: products labeled as \"toddler,\" \"table time,\" \"graduates,\" \"finger foods,\" and any other descriptive terms which indicate that the product is specially formulated or processed for use by toddler."
+  ],
+  "Eggs/egg yolks, ready-to-serve": [
+    "Ready-to-serve (e.g., prepared and jarred) products whose major ingredient is eggs or egg yolks and which have been specially formulated for use by infants up to 12 months of age."
+  ],
+  "Juices, all varieties": [
+    "All juices which have been specially formulated or processed for use by infants up to 12 months of age."
+  ],
+  "Biscuits, croissants, bagels, tortillas, soft bread sticks, sof tpretzels, corn bread, hush puppies": [
+    "All biscuits, croissants, English muffins, bagels, and tortillas; soft bread sticks; soft pretzels; cornbread, hush puppies NOTE: For hand bread sticks, see crackers"
+  ],
+  "Breads {excluding sweet quick type}, rolls": [
+    "All breads except sweet quick type breads (e.g., white, wheat, rye, multi-grain, raisin, and soda bread); all rolls other than sweet rolls (e.g., dinner rolls, hamburger rolls, hot dog rolls). NOTE: Sweet rolls belong to the \"Coffee cakes...\" category."
+  ],
+  "Brownies": [
+    "All brownies."
+  ],
+  "Cakes, heavy weight (cheese cake; pineapple upside-down cake; fruit, nut and vegetables cakes with more than or equal to 35 percent of the finished weight as fruit, nuts, or vegetables)": [
+    "All cheese cakes, pineapple upside-down cake, and all cakes which contain 35 percent or more fruit, nuts, or vegetables (e.g., Christmas fruit cake). Cakes in this category typically weight 10 g or more per cubic inch."
+  ],
+  "Cakes, medium weight (chemically leavened cake with or without Icing or filling except those classified as light weight cake; fruit, nut, and vegetable cake with less than 35 percent of the finished weight as fruit, nuts, or vegetables; light weight cake with Icing; Boston cream pie; cupcake; eclair; cream puff)": [
+    "All chemically leavened cakes with or without Icing or filling except those included in the heavy or the light weight cake categories and all cakes which contain less than 35 percent fruit, nuts, or vegetable - Includes Boston cream pies, jelly rolls, tortes, cupcakes, eclairs and cream puffs. Cakes in this category typically weight 4 g or more but less than 10 g per cubic inch."
+  ],
+  "Cakes, light weight (angel food, chiffon, or sponge cake without Icing or filling)": [
+    "Angel food, chiffon, or sponge cake without Icing or filling or heavy ingredients (e.g., chocolate chips, fruit, nuts, vegetables) which are not customarily recognized ingredients of these cakes. Cakes in this category typically weigh less than 4 g per cubic inch."
+  ],
+  "Coffee cakes, crumb cakes, doughnuts, Danish, sweet rolls, sweet quick type breads, muffins, toaster pastries": [
+    "All coffee cakes, crumbcakes, doughnuts, Danish, and sweet rolls with or without Icing or filling; all sweet quick type breads (e.g., banana nut bread, cranberry nut bread, zucchini bread, pumpkin bread); all muffins other than English muffin; corn muffin toaster, raisin bran toasties; toaster pastries with or without filling or icing (e.g., pop tarts, toasters tarts, breakfast tarts)."
+  ],
+  "Cookies": [
+    "All cookies, sweet biscuits (e.g., tea biscuits), lady fingers."
+  ],
+  "Crackers that are usually not used as snack; melba toast, hard bread sticks, ice cream cones": [
+    "Saltines, soda crackers, oyster crackers; crisp breads; rice crackers (excluding rice cracker snack mixes); melba toast; hard bread sticks; puffed cereal-grain cakes (e.g., rice, wheat, or corn cakes); all types of ice cream cones and cups. NOTE: Cracker and cheese placed separately in the same container (e.g., cracker and cheese snack pack) belong to two product categories, the \"Cheese, all others...\" category and the \"Crackers that are usually used as snacks\" category. The reference amount for this type of product is the sum of the reference amounts for the individual foods ([section] 101.12), I.e., 60 g. The reference amount of all crackers included in these packages (including saltines, soda crackers, etc.) is 30 g because these products are intended for snacks."
+  ],
+  "Crackers that are usually used as snacks": [
+    "All crackers with the exception of those listed in the \"Crackers that are not usually used as snacks...\" category, including sweet crackers (e.g., graham or animal crackers) and sandwich crackers (e.g., cheese and peanut butter sandwich crackers). NOTE: Crackers and cheese placed separately in the same container (e.g., cracker and cheese snack pack) belong to two product categories, the \"Cheese, all others...\" category and the \"Crackers that are usually used as snacks\" category. The reference amount for this type of product is the sum of the reference amounts for the individual foods ([section] 101.12{1}), I.e., 60. The reference amount of all crackers included in these packages (Including saltines, soda crackers, etc.) Is 30 g because these products are intended for snacks."
+  ],
+  "Croutone": [
+    "All croutone."
+  ],
+  "French toast, pancakes, variety mixes": [
+    "All French toast and pancakes, and variety mixes to make pancakes, waffles, etc. (e.g., Bisquick)."
+  ],
+  "Grain-based bars with or without filling or coating, e.g., breakfast bars, granola bars, rice cereal bars": [
+    "All breakfast bars, granola bars, and similar types of products made of cereal-grains with or without filling or coating (e.g., Rice Krispies bar, Sunbelt's Peanut Butter Natural, Kellogg's Nutri-grain cereal bars). NOTE: For toaster pastries, see coffee cakes."
+  ],
+  "Pies, cobblers, fruit crisps, turnover, other pastries": [
+    "Pies, dessert-type turnover, fruit crisps, and other pastries with fruit filling (e.g., cobblers, strudel); blintzes; dessert-type crapes. NOTE: Eclairs and cream puffs are Included in the \"Cakes, medium weight...\" category."
+  ],
+  "Pie crust": [
+    "All pie crusts."
+  ],
+  "Pizza crust": [
+    "All pizza crusts and bread shells."
+  ],
+  "Taco shells, hard": [
+    "All hard taco and tostado shells."
+  ],
+  "Waffles": [
+    "All waffles."
+  ],
+  "Carbonated and noncarbonated beverages, wine coolers, water": [
+    "All types of carbonated drinks (e.g., soft drinks) and noncarbonated drinks (e.g., Kool Aids, sports drinks); wine coolers; all types of bottled water (e.g., carbonated, mineral and spring water)."
+  ],
+  "Coffee or tea, flavored and sweetened": [
+    "Dry instant coffee with sugar and/or cream substitute (e.g., international coffee such as mocha, cappuccino); Iced tea mix with sugar."
+  ],
+  "Breakfast cereals (hot cereal type), hominy grits": [
+    "All types of hot breakfast cereals (regular, quick, and instant), plain and flavored with or without sweetener and/or fruits or nuts; and cereal-grains that are used as hot breakfast cereals (e.g., hominy grits)."
+  ],
+  "Breakfast cereals, ready-to-eat, weighing less than 20 g per cup, e.g., plain puffed cereal grains": [
+    "All ready-to-eat breakfast cereals which less than 20 per cup. Products which belong to this category are too numerous to list here and therefore, we have provided a separate list (see attachment 1). Manufacturers should use the density information (i.e., g/cup) presented in this list to classify products in the appropriate category NOTE: If a manufacturer disagree with USDA's density, the manufacturer can petition FDA to reclassify the PRODUCT CATEGORY for the petitioned cereal. The petitioner must follow the petition process described in [section] 101.12(h)."
+  ],
+  "Breakfast cereals, ready-to-eat, weighing 20 g or more but less than 43 g per cup; high fiber cereals containing 28 g or more of fiber per 100 g": [
+    "All ready-to-eat breakfast cereals which weigh more than 20 g and less than 43 g per cup. Products which belong to this category are too numerous to list here and therefore, we have provided a separate list (see attachment 1). Manufacturer should use the density information (i.e., g/cup) presented in this list to classify products in the appropriate category. NOTE: If a manufacturer disagrees with USDA's density, the manufacturer can petition FDA to reclassify the PRODUCT CATEGORY for the petitioned cereal. The petitioner must follow the petition process described in [section] 101.12(h)."
+  ],
+  "Breakfast cereals, ready-to-eat, weighing 43 g or more per cup; biscuit types": [
+    "All ready-to-eat- breakfast cereals which weigh 43 g or more per cup and large biscuit type ready-to-eat breakfast cereals (e.g., large shredded wheat biscuit). Products which belong to this category are too numerous to list here and therefore, we have provided a separate list (see attachment 1). Manufacturers should use the density information (i.e., g/cup) presented in this list to classify production in the appropriate category. NOTE: If a manufacturer disagree with USDA's density, the manufacturer can petition FDA to reclassify the PRODUCT CATEGORY for the petitioned cereal. The petitioner must follow the petition process described in [section] 101.12(h)."
+  ],
+  "Bran or wheat grain": [
+    "All plain brans and wheat grains are not processed ready-to-eat breakfast cereals."
+  ],
+  "Flours or cornmeal": [
+    "All what and other cereal-grain flours (e.g., rice flours corn flour) and cornmeal."
+  ],
+  "Grains, e.g., rice, barley, plain": [
+    "All plains whole grains (e.g., rice, wheat, barley, millet). NOTE: Flavored rice with or without sauce (e.g., dry flavored rice mixes; rice with cream sauce, cheese sauce, tomato-based sauce, etc.) belong to the \"Mixed Dishes\": measurable with cup\" category."
+  ],
+  "Pastes, plain": [
+    "All parts (e.g., spaghetti, vermicelli, lasagna, macaroni) and noodles without sauce or seasoning mixes. NOTE: Pasta and noodle products with sauce (e.g., cream sauce, cheese sauce, tomato-bases sauce) or seasoning mix belong to the \"Mixed Dishes: measurable with cup\" category."
+  ],
+  "Pastes, dry, ready-to-eat, e.g., fried canned chow main noodles": [
+    "Dry ready-to-eat noodles and pastas (e.g., fried chow main noodles)."
+  ],
+  "Starches, e.g., cornstarch, potato starch, tapioca, etc.": [
+    "All starches including cornstarch, potato starch, and tapioca."
+  ],
+  "Stuffing": [
+    "All stuffings including stuffing and rice stuffing."
+  ],
+  "Cheese, cottage": [
+    "All cottage cheese (regular and low fat) except for dry cottage cheese."
+  ],
+  "Cheese used primarily as ingredients, e.g., dry cottage cheese, ricotta cheese": [
+    "All dry cottage cheese and ricotta cheese."
+  ],
+  "Cheese, grated hard, e.g., Parmesan, Romano": [
+    "All hard grated cheese including grated Parmesan and Romano cheese."
+  ],
+  "Cheese, all others except those listed as separate categories--including cream cheese and cheese spread": [
+    "All natural and processed cheese products (including cheese whiz) other than cottage cheese, ricotta cheese, and grated hard cheese. NOTE: Cheese sauce belongs to the \"Minor main entree sauce...\" category. Cracker and cheese placed In the same container (e.g., cracker and cheese snack pack) belong to two product categories, \"Cheese, all others...\" category and \"Crackers that are usually used as snacks...\" category. The reference amount for this type of product is the sum of the reference amounts for the individual foods ([section] 101.12(f)), i.e., 60 g. The reference amount of all crackers included in these packages (including saltines, soda crackers, etc.) is 30 g because these products are intended for snacks."
+  ],
+  "Cream or cream substitutes, fluid": [
+    "All types of fluid cream (light and heavy) and cream substitutes (e.g., coffee whitener)."
+  ],
+  "Cream or cream substitutes, powder": [
+    "All powdered cream and cream substitutes (e.g., coffee whitener)."
+  ],
+  "Cream, half & half": [
+    "Fluid cream containing half cream and half milk."
+  ],
+  "Eggnog": [
+    "All eggnogs"
+  ],
+  "Milk, condensed, undiluted": [
+    "All condensed milk."
+  ],
+  "Milk, evaporated, undiluted": [
+    "All evaporated milk."
+  ],
+  "Milk, milk-based drinks, e.g., instant breakfast, meal replacement, cocoa": [
+    "All milk, regular and flavored (e.g., chocolate milk) of any fat content; all milk-based meal replacements e.g., Sago, Slender, etc.); all hot cocoa; malted milk beverages, and all other milk-based beverages (e.g., Nestle's Quik) with the exception of milkshakes. Milk-based beverages mean that milk and milk-derived Ingredients are the major ingredient of the beverage when prepared for consumption. For example, a dry beverage mix product may not contain milk or milk-derived ingredients. However, if the package direction recommends adding milk to make the beverage for consumption, the product is classified as a milk-based beverage."
+  ],
+  "Shakes or shake substitutes, e.g., dairy shake mixes, fruit frost mixes": [
+    "All milkshakes, dairy-based shake mixes (e.g., Alba shake mix), and foamy beverage mixes mimicking shakes such as fruit-based or fruit-flavored shakes (e.g., fruit frost mix)."
+  ],
+  "Sour Cream": [
+    "All sour cream and sour cream substitutes."
+  ],
+  "Yogurt": [
+    "All yogurts, plain, flavored, and sweetened with or without fruit, nuts, and other ingredients (e.g., granola) packaged together or in separate compartments that are mixed together for consumption."
+  ],
+  "ice cream, ice milk, frozen yogurt, sherbet: all types, bulk and novelties e.g., bars, sandwiches, cones)": [
+    "All types of ice cream, ice milk, frozen yogurt, sherbet, and other milk-based frozen desserts (e.g., creamsicle, dreamsicle, fudgesicle, pudding pops), frozen custard; bulk and novelties (e.g., bars, sandwiches, cones, slices), hard and soft-serve. NOTE: Nonmilk-based frozen desserts belong to the \"Frozen flavored and sweetened ice and pops...\" category."
+  ],
+  "Frozen flavored and sweetened ice and pops, frozen fruit juices: all types, bulk and novelties (e.g., bars, cups)": [
+    "Frozen flavored and sweetened ice and pops (e.g., popsicles, flavor ice, snow cones, slurpees), and frozen fruit juices: bulk and novelties (e.g., bars, cups, slices). NOTE: Unfrozen flavor ice belongs to this category."
+  ],
+  "Sundae": [
+    "All sundaes."
+  ],
+  "Custards, gelatin or pudding": [
+    "All types of custards, gelatin desserts (e.g., Jell-O), mouses, and puddings (flavored and unflavored). NOTE: Frozen custards, gelatins and puddings belong to the appropriate frozen desserts category listed above."
+  ],
+  "Cake frostings or icings": [
+    "All cake frostings and icings."
+  ],
+  "Other dessert toppings, e.g., fruits, syrups, spreads, marshmallow cream, nuts, dairy and non-dairy whipped toppings": [
+    "All dessert toppings other than cake frostings and icings (e.g., butterscotch, caramel, chocolate, fudge, fruit, marshmallow cream, and nut topping): dairy and non-dairy whipped toppings; dessert spreads (e.g., Nutella). Note: Chocolate and sugar sprinkles are included in this \"Baking decorations ...\" category under the Miscellaneous category."
+  ],
+  "Pie fillings": [
+    "All pie fillings including fruit, minced meat, and pumpkin pie filling."
+  ],
+  "Egg mixtures, e.g., egg too young, scrambled eggs, omelets": [
+    "Egg too young, scrambled eggs, omelets, and other mixtures having eggs as the major ingredient."
+  ],
+  "Eggs (all sizes)": [
+    "All whole poultry eggs:"
+  ],
+  "Egg substitutes": [
+    "All egg substitutes."
+  ],
+  "Butter, margarine, oil, shortening": [
+    "All types of butter and margarine (regular, diet, liquid, and whipped); spreads; oils; and shortenings."
+  ],
+  "Butter replacement, powder": [
+    "Powdered butter replacements (e.g., Butter Buds)."
+  ],
+  "Dressings for salads": [
+    "All salad dressings except mayonnaise, sandwich spreads, and mayonnaise-type dressings which substitute for mayonnaise (e.g., Miracle Whip). Examples are Blue or Roquefort cheese dressing, Caesar dressing, coleslaw dressing, feta cheese dressing, French dressing, fruit dressing, honey mustard dressing, Italian dressing, Russian dressing, Green Goddess dressing, creamy dressing (e.g., creamy cucumber, creamy Italian, dressings made with sour cream), buttermilk dressing (e.g., ranch dressing), and Thousand Island dressing."
+  ],
+  "Mayonnaise, sandwich spreads, mayonnaise-type dressings": [
+    "All mayonnaise, sandwich spreads, and mayonnaise-type dressings which substitutes for mayonnaise or sandwich spread (e.g., Miracle Whip)."
+  ],
+  "Spray types": [
+    "Nonstick cooking sprays (e.g., Pam)."
+  ],
+  "Bacon substitutes, canned anchovies, anchovy pastes, caviar": [
+    "Meatless bacon strips, breakfast strips, canned anchovy, anchovy paste, and caviar. NOTE: Substitutes for bacon bits belong to the \"Salad and potato toppers...\" category."
+  ],
+  "Dried, e.g., jerky": [
+    "All dried fish, shellfish, game meats, and meat or poultry substitutes having a water to protein ratio of less than 2:1, e.g., fish jerky."
+  ],
+  "Entrees with sauce, e.g. fish with cream sauce, shrimp with lobster sauce": [
+    "All raw and cooked fish, shellfish, game meat, and meat or poultry substitute products with sauce or gravy of which fish, shellfish, game meat, and meat or poultry substitute are the major ingredient. Examples are fish divan, creamed fish,. shrimp with lobster sauce, sweet and sour shrimp. shrimp cocktail, Seafood Newburg, scallops with cheese sauce, meatless salisbury steak with gravy, mock chicken leg with cream sauce, and isolated wheat gluten with sauce. These products are often used as toppings for rice, pasta, or baked products. Products with accompanying starch items (e.g., Seafood Newburg on a bed of noodles, creamed tuna with biscuit, sweet and sour shrimp with rice) belong to the \"Mixed Dishes...\" categories. NOTE: This category includes raw fish, shellfish, game meat, and meat or poultry substitutes with sauces or gravies. The 140 g reference amount for this category is, however, for the cooked form of the product. The reference amount for uncooked products is the amount required to make 140 g cooked."
+  ],
+  "Entrees without sauce, e.g., plain or fried fish and shellfish, fish and shellfish cake": [
+    "All raw cooked fish, shellfish, game meat, and meat poultry substitute products without sauce or gravy of which fish, shellfish, game meat, and meat or poultry substitutes are the major ingredient. Examples are plain fish, shellfish, game meat, meat or poultry substitutes (e.g., soy burger, meatless scallop, etc): battered or breaded fillet or fish stick; battered or breaded shrimp; spiced shrimp and crab; fish and shellfish cake; fish loaf; and stuffed and shellfish, isolated wheat gluten. NOTE: This category included raw fish, shellfish, game meat, and meat or poultry substitutes. The 85 g reference amount for this category is, however, for the cooked form of the product. The reference amount for uncooked products is the smooth required to make 85 g cooked."
+  ],
+  "Fish, shellfish, or game meat, canned": [
+    "All canned fish, shellfish and game meat, other than smoked or pickled fish, shellfish, and game meat, e.g., canned tuna, canned shrimp, canned clams, gefilte fish, etc."
+  ],
+  "Substitute for luncheon meat, meat spreads, Canadian bacon, sausages and frankfurters": [
+    "All meatless products substituting for luncheon meats, meat spreads, Canadian bacon, sausages and frankfurters. Example are meatless breakfast links, patties or slices; meatless salami; and meatless frankfurter."
+  ],
+  "Smoked or pickled fish, shellfish, or game meat; fish or shellfish spread": [
+    "All smoked or pickled fish, shellfish, and game meat. These products are usually served as an appetizer, not an entire. Examples are hearing pickled in cream or wine sauce, smoked kippered herring, smoked salmon, and ground fish paste used for canapes. NOTE: For substitutes for bacon bite, see the \"Miscellaneous\" category."
+  ],
+  "Candled or pickled": [
+    "All candled fruits (e.g., candled pineapple, cherries, apple, pear, etc.); all pickled fruits (e.g., pickled apple, apple rings, etc.). NOTE: Carameled apples belong to the \"All other fruits...fresh, canned or frozen\" category. Dehydrated fruits belong in the snack category."
+  ],
+  "Dried": [
+    "All dried fruits including raisins, dates, prunes, and dried peach, pear, and apple. NOTE: Dehydrated fruits and fruit chips (e.g., banana chips) belong to the snack category."
+  ],
+  "Fruits for garnish or flavor, e.g., maraschino cherries": [
+    "Fruits used for garnish or flavor. The only example currently available is maraschino cherries."
+  ],
+  "Fruit relishes, e.g., cranberry sauce, cranberry relish": [
+    "Fruit products which are used as relishes, e.g., cranberry sauce, cranberry relish, and cranberry-orange relish"
+  ],
+  "Fruits used primarily as ingredients, avocado": [
+    "Avocado"
+  ],
+  "Fruits used primarily as ingredients, others (cranberries, lemon, lime)": [
+    "Fruits used primarily as an ingredient in other foods. These fruits are not consumed in the same way as fruits like apples, peaches, pears, and melons. Cranberries, lemon, and lime belong to the category."
+  ],
+  "Watermelon": [
+    "Watermelon."
+  ],
+  "All other fruits (except those listed as separate categories), fresh, canned or frozen": [
+    "All fresh, canned, or frozen fruits, berries , and melons other than those listed (in other fruit categories - includes apple sauce and carameled apples."
+  ],
+  "Juices, nectars, fruit drinks": [
+    "All fruit juices (excluding lemon and lime juice), nectars, noncarbonated drinks containing any amount of fruit juice or nectar."
+  ],
+  "Juices used as ingredients, e.g., lemon juice, lime juice": [
+    "Lemon and lime juice."
+  ],
+  "Bean cake (tofu), tempe": [
+    "Bean cake (also called bean curd and tofu), tempe."
+  ],
+  "Beans, plain or in sauce": [
+    "All dried bean, pea, chickpea, pigeon pea and lentil products with or without sauce excluding bean cake and condiments made from dried beans (e.g., soy sauce, soybean paste, black bean sauce, etc). Each are dried and canned forms of these beans and peas; baked beans; and refried beans."
+  ],
+  "Baking powder, baking soda, pectin": [
+    "All types of baking powder, baking soda, and similar leavening agents; pectin."
+  ],
+  "Baking decorations, e.g., colored sugars and sprinkles for cookies, cake decorations": [
+    "all products used to decorate cakes, cookies and other desserts, e.g., colored sugars, cake decors, cake decorating gel, chocolate sprinkles, etc."
+  ],
+  "Batter mixes, bread crumbs": [
+    "Bread crumbs, cracker crumbs, corn flake crumbs, batter mixes."
+  ],
+  "Cooking wine": [
+    "Cooking wine."
+  ],
+  "Drink mixers (without alcohol)": [
+    "Mixers for alcoholic beverages."
+  ],
+  "Chewing gum": [
+    "All chewing gums, regular, sugarless, and bubble gum."
+  ],
+  "Meat, poultry, and fish coating mixes, dry; seasoning mixes, dry, e.g., chill seasoning mixes, pasta salad seasoning mixes": [
+    "Coating mixes for meat, poultry, and fish (e.g., Shake'n Ba ke); seasoning mixes for specific dishes (e.g., chill seasoning mix, pasta salad seasoning mix, meat loaf seasoning mix). NOTE: Seasoning mixes containing salt for general use (e.g., garlic salt, onion salt, all purpose seasoning salt, etc.) belong to the \"Salt substitute, seasoning salt...\"category."
+  ],
+  "Salad and potato toppers, e.g., salad crunchies, salad crispins, substitutes, for bacon bits": [
+    "All toppers for salads and potatoes, e.g., salad crunchies, salad crispies, meatless bacon bits. NOTE: Shredded cheeses belong to the \"Cheeses, all others...\" category under Dairy Products and Substitutes."
+  ],
+  "Salt, salt substitutes, seasoning salts (e.g., garlic salt)": [
+    "Salt; seasoning mixes containing salt for general use (e.g., garlic salt, onion salt, all purpose seasoning salt, etc.); salt substitutes."
+  ],
+  "Spices, herbs (other than dietary supplements)": [
+    "All spices and herbs (except those that contain salt) used to flavor food; seeds used as spices (e.g., poppy seed, sesame seed, celery seed). NOTE: Spices or herbs containing salt belong to the \"Salt, salt substitutes, seasoning salts...\" category."
+  ],
+  "Measurable with cup, e.g., casseroles, hash, macaroni and cheese, pot pies, spaghetti with sauce, stews, etc.": [
+    "All mixed dishes that are measurable with cup that are not listed as a separate category in [section] 101.12(b). Products in this category are mixtures and usually contain starch (e.g. rice, pasta,,,,,, etc.), dried beans and/or animal source ingredients (e.g., cheese, fish, and shellfish). They corns with or without vegetables. Examples are casseroles; chili; stews; hash; pot pies; tune with dumpling (mixture); to mein; lasagna; macaroni and cheese; filled pasta e.g.,cannelloni, ravioli, and tortellini); spaghetti with sauce; Fettuccini Alfredo; linguini with clam sauce; pasta with pesto sauce; other pasta with cream sauce, cheese sauce, tomato-based sauce, and other similar sauces; flavored rice with or without sauce, bean, vegetable or animal products (e.g., paella, Spanish rice, rice and beans, rice with cheese, flavored rice mixes, fried rice, shrimp chow main on rice, etc). NOTE: Some frozen entrees, e.g., rice or pasta with sauce or toppings are often packaged in separate pouches. The component foods are packaged separately for technical reasons such as differences in required cooking times for the different components and batter preservation of the texture and flavor during storage. However, the components from all pouches in a package are consumed as one product, and therefore, they are mixed dishes and belong to the category."
+  ],
+  "Not measurable with cup, e.g., burritos, egg rolls, enchiladas, pizza, pizza rolls, quiche, all types of sandwiches": [
+    "All mixed dishes that are not measurable with cup that are not listed as a separate category in [section] 101.12(b). Products in this category usually are mixtures and usually contain starch (e.g. rice, pasta and breading), dried beans, and/or animal source ingredients (e.g., cheese, fish, and shellfish). They taco, chimichanga, fajita, calzone, egg roll, pizza roll, dim sum, dumpling, entree-type turnover or crepe, stuffed shell, and stuffed pepper, cabbage, and tomato."
+  ],
+  "Nuts, seeds and mixtures, all types: sliced, chopped, slivered, and whole": [
+    "All nuts; seeds used as a snack (e.g., sunflower seeds); mixed nuts; and mixtures primarily consisting of nuts and seeds (e.g., snack mixes); soybean nuts. NOTE: Seeds that are used for flavoring (e.g., sesame seed, poppy seed, celery seed) and are usually positioned with spices and herbs in the marketplace, do not belong to this category. Nuts coated with candy (e.g., chocolate-coated nuts, yogurt-coated nuts, etc.) belong to the \"All other candies\" category."
+  ],
+  "Nut and seed butters, pastes, or creams": [
+    "All butter or paste made of nuts or seeds (e.g., peanut butter, almond butter, sesame butter or paste, etc ), peanut spread, and coconut cream. NOTE: Peanut butter and jelly or jam placed in the same container (e.g., Polaner's Grape Jelly & Peanut Butter) belong to two product categories, the \"Nut and seed butter, pasta, or cream\" category and the \"Honey, jams, jollies, fruit butter, molasses\" category. The reference amount for this type of product is the sum of the reference amounts for the Individuals Foods ([section] 101.12)."
+  ],
+  "Coconut, nut and seed flours": [
+    "All coconut meat products; nut or seed flour; soybean flour; and carob flour."
+  ],
+  "French fries, hash browns, skins, or pancakes": [
+    "Examples of products included in this category are deep or pan fried potatoes/sweet potatoes/yams (e.g., French fries, hashbrowns, and potato O'Brien); potato skins; Tatar Tots; potatoes/sweet potatoes/yam patties; potato puffs; and potato pancakes."
+  ],
+  "Mashed, candied, stuffed or with sauce": [
+    "Mashed, candied, or stuffed potatoes/sweet potatoes/yams; potatoes/sweet potatoes /yams in sauce (e.g., potatoes au gratin and scalloped potatoes)."
+  ],
+  "Plain, fresh, canned, or frozen": [
+    "All plain potatoes, sweet potatoes, and yams without sauce that are not included in the other two potato/sweet potato/yam categories."
+  ],
+  "Gelatin Salad": [
+    "All types of gelatin-based salads with or without fruits, vegetables or nuts."
+  ],
+  "Pasta or potato salad": [
+    "All pasta and potato salads."
+  ],
+  "All other salads, e.g., egg, fish, shellfish, bean, fruit, or vegetable salads": [
+    "All fish, shellfish, bean, fruit, or vegetable salads. NOTE: The reference amount for vegetable salads includes dressing. Canned fruits labeled as \"fruit salad\" that resemble fruit cocktail belong to the \"All other fruits...\" category."
+  ],
+  "Barbecue sauce, hollandaise sauce, tartar sauce, other sauces for dipping (e.g., mustard sauce, sweet and sour sauce), all dips (e.g., bean dips, dairy-based dips, salsa)": [
+    "Barbecue sauce, hollandaise sauce, tartar sauce, all dips (e.g. bean dip; dips made with sour cream, cream cheese, yogurt, or other dairy products; guacamole, etc.); salsa; sauces for dipping (e.g., mustard sauce, and sweet and sour sauce for chicken nuggets)."
+  ],
+  "Major main entree sauces, e.g., spaghetti sauce": [
+    "Sauces customarily used in about s ½ cup quantity for main entrees, e.g., spaghetti sauce, marinara sauce, alfredo sauce, and white clam sauce."
+  ],
+  "Minor main entree sauces (e.g., pizza sauce, pesto sauce), other sauces used as toppings (e.g., gravy, white sauce, cheese sauce), cocktail sauce": [
+    "Sauces customarily used for main entrees that are thicker in consistency and/or used in smaller quantities then the sauces included in the major main entree sauce (e.g., pizza sauce, enchilada sauce, and pesto sauce); gravy, white sauce, cheese sauce, and other similar sauces used as toppings; and cocktail sauce."
+  ],
+  "Major condiments, e.g., catsup, steak sauce, soy sauce, vinegar, teriyaki sauce, marinades": [
+    "Condiments that are customarily used in a large quantity (e.g., about one tablespoon). Catsup, hot dog chili sauce, steak sauce, taco sauce, horse radish sauce, soy sauce, vinegar, teriyaki sauce, all marinades. and fish sauce belong to this category."
+  ],
+  "Minor condiments, e.g., horseradish, hot sauces, mustards, Worcestershire sauce": [
+    "Condiments that are customarily used in a small quantity (e.g., about one teaspoon). Horseradish (not horseradish sauce), hot sauce, mustard (not mustard sauce), and Worcestershire sauce belong to this category. NOTE: Mustard sauce belongs to the \"Barbecue sauce...\" category. Horseradish sauce belongs to the \"Major condiments...\" category."
+  ],
+  "All varieties, chips, pretzels, popcorns, extruded snacks, fruit-based snacks (e.g., fruit chips), grain-based snack mixes": [
+    "All salty snacks (e.g., potato chips, corn chips, tortilla chips, pretzels, and other starch-based extruded snacks): popped and unpopped popcorns, sweetened and unsweetened, flavored and unflavored, with or without nuts; fruit-based snacks (e.g., banana chips, apple chips, dehydrated fruits, pressed fruit sheets such as fruit roll-ups and fruit wrinkles, etc.): and other grain-based snack mixes (e.g., multigrain mixture with nuts and/or fruits)."
+  ],
+  "All varieties": [
+    "All soups including oriental style soup (e.g., Ramen)."
+  ],
+  "Baking candies (e.g., chips)": [
+    "All candles used for baking (e.g., baking chocolate, chocolate chips, baking cocoa, and peanut butter chips)."
+  ],
+  "Hard candies, breath mints": [
+    "Breath Savers, Tic Tacs."
+  ],
+  "Hard candies, roll-type, mini-size in dispenser packages": [
+    "All types and flavors of roll type hard candy (e.g. Life Savers) and mini-size candies in dispenser packages, excluding breathmints."
+  ],
+  "Hard candies, others": [
+    "All hard candies except those which belong to the \"Hard candies, breath mints\" and \"Hard candies, roll- type, mini-size in dispenser packages: categories, (e.g., sour bells, lollipops, butterscotch discs, candy canes, rock candy, cinnamon imperials, red hots, cinnamon hearts)."
+  ],
+  "All other candies": [
+    "All candies than those included in the baking and hard candies categories - includes fruits or nuts coated with candy (e.g., chocolate-coated raisins or nuts, yogurt-coated raisins or nuts, etc.), fruit-based sweets (e.g., gummy barrel and marshmallow candies (e.g., chocolate-coated marshmallows, coconut- coated marshmallows, marshmallow chickens, marshmallows cream Circus Peanuts). NOTE: All plain marshmallows are included in the \"Marshmallows\" category."
+  ],
+  "Honey, jams, jellies, fruit butter, molasses": [
+    "All honeys, jams, jellies, preserves, marmalades, fruit butters (e.g., apple butter), fruit glaze, mint jelly, and molasses. NOTE: Peanut butter and jelly placed in the same container (e.g., Polaner's Grape & Peanut Butter) belong to two product categories, the \"Nut and seed butter, paste, or cream\" category and the \"Honey, jams, jellies, fruit butter, molasses\" category. The reference amount for this type of product is the sum of the reference amounts for the individual foods ([section] 101.12)."
+  ],
+  "Marshmallows": [
+    "All plain marshmallows. NOTE: Marshmallow candies (e.g., chocolates coated marshmallows, coconut coated marshmallows, marshmallow chickens, marshmallow creme Circus Peanuts) belong to the \"All other candies\" category."
+  ],
+  "Sugar": [
+    "All sugars excluding powdered sugar, e.g., granulated white or brown sugar, cubed sugar, and cinnamon sugar. NOTE: Rock sugar candy belongs to the \"Hard candies, others\" category."
+  ],
+  "Sugar substitutes": [
+    "All sugar substitutes, liquid and powder."
+  ],
+  "Syrups": [
+    "All syrups other than chocolate or fudge types (which are included in the \"Other desert toppings...\" category) -- includes cane syrup; corn syrup; maple syrup; cane, maple, and/or corn blends; buttered syrup; sugar and water syrup; and fruit syrup."
+  ],
+  "Vegetables primarily used for garnish or flavor, e.g., pimento, parsley": [
+    "Fresh or canned pimento and parsley. NOTE: Dried parsley flakes belong to the \"Spices, herbs...\" category under the Miscellaneous category."
+  ],
+  "Chill pepper, green onion": [
+    "Fresh or canned chill peppers, green onion."
+  ],
+  "All other vegetables without sauce: fresh, canned, or frozen": [
+    "All fresh, canned or frozen vegetables other than those used for garnish or flavor and are not in sauce -- includes corn fritters, breaded or butter-dipped and fried vegetables (e.g., fried onion ring), pumpkin, and winter squash."
+  ],
+  "All other vegetables with sauce: fresh, canned, or frozen": [
+    "All fresh, canned, or frozen vegetables other than those used for garnish or flavor that come with sauce, e.g., creamed spinach, peas and onion with cream sauce, spinach souffle, broccoli with cheese sauce, glazed carrots, carrots in tomato sauce."
+  ],
+  "Vegetable juice": [
+    "All single or mixed vegetable juices (e.g., tomato juice, vegetable juice, etc.)."
+  ],
+  "Olives": [
+    "All olives, green, black, and stuffed."
+  ],
+  "Pickles, all types": [
+    "All types of pickled vegetables, including jalapeno peppers."
+  ],
+  "Pickle relishes": [
+    "All pickle and vegetable relishes."
+  ],
+  "Vegetable pastes, e.g., tomato paste": [
+    "Tomato paste and other vegetable pastes having similar consistency (i.e., water content of about 75%)."
+  ],
+  "Vegetable sauces or purees, e.g., tomato sauce, tomato puree": [
+    "Tomato sauce, tomato puree, and other vegetable sauces or purees having similar consistency(i.e., water content of about 85 to 90%)."
+  ]
+}
