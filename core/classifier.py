@@ -38,7 +38,6 @@ def _load_fda_categories() -> Dict[str, List[str]]:
         return {}
 
 
-
 def classify_llm_semantic(product_name: str, *, model: str = "gpt-4o", temperature: float = 0.0, debug: bool = False) -> str:
     """
     AI-native classification using semantic understanding.
