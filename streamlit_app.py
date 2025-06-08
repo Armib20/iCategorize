@@ -1,17 +1,23 @@
-import streamlit as st
-import pandas as pd
-import io
-from typing import List, Dict, Any
+"""
+iCategorize: FDA Product Classification Web App
+
+A Streamlit web application for classifying food products into FDA categories
+using AI-powered classification.
+"""
+
 import os
-from datetime import datetime
 import json
+import pathlib
+import tempfile
+from datetime import datetime
+from typing import List, Optional
 
-# Import agent functionality
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import pandas as pd
+import streamlit as st
 
-from core import ProductClassificationAgent, ClassificationResult
+# Import core modules
+from core.agent import SimplifiedProductClassificationAgent, ClassificationResult
+from core.classifier import classify_llm
 
 # Configure page
 st.set_page_config(
@@ -23,7 +29,7 @@ st.set_page_config(
 
 # Initialize session state
 if 'agent' not in st.session_state:
-    st.session_state.agent = ProductClassificationAgent(
+    st.session_state.agent = SimplifiedProductClassificationAgent(
         model="gpt-4o",
         enable_learning=True
     )
@@ -127,7 +133,7 @@ def main():
         )
         
         if model_choice != st.session_state.agent.model:
-            st.session_state.agent = ProductClassificationAgent(
+            st.session_state.agent = SimplifiedProductClassificationAgent(
                 model=model_choice,
                 enable_learning=True
             )
@@ -152,7 +158,7 @@ def main():
         if st.button("Clear Session", type="secondary"):
             st.session_state.chat_history = []
             st.session_state.classification_results = []
-            st.session_state.agent = ProductClassificationAgent(
+            st.session_state.agent = SimplifiedProductClassificationAgent(
                 model=model_choice,
                 enable_learning=True
             )

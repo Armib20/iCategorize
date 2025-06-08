@@ -15,9 +15,26 @@ import pathlib
 
 from .classifier import classify_llm_hybrid, classify_llm_semantic
 
-# Get the FDA categories path
-ROOT = pathlib.Path(__file__).resolve().parents[1]
-FDA_JSON = ROOT / "data" / "fda_categories.json"
+# Try multiple possible paths for the FDA categories file
+def _get_fda_json_path():
+    """Get the path to FDA categories JSON with fallbacks for different environments."""
+    
+    # Try the most likely paths in order
+    possible_paths = [
+        # Development: relative to repo root
+        pathlib.Path("data/fda_categories.json"),
+        # Streamlit Cloud: absolute deployment path
+        pathlib.Path("/mount/src/icategorize/data/fda_categories.json"),
+    ]
+    
+    for path in possible_paths:
+        if path.exists():
+            return path
+    
+    # If none found, return the first path for error reporting
+    return possible_paths[0]
+
+FDA_JSON = _get_fda_json_path()
 
 
 @dataclass
@@ -69,11 +86,22 @@ class SimplifiedProductClassificationAgent:
         
     def _load_fda_categories(self) -> Dict[str, List[str]]:
         """Load FDA categories and descriptions."""
+        # First try the global FDA_JSON path
         try:
             with FDA_JSON.open("r", encoding="utf-8") as f:
                 return json.load(f)
         except FileNotFoundError:
-            return {}
+            # Try to find the file again with fresh path resolution
+            fda_json_path = _get_fda_json_path()
+            try:
+                with fda_json_path.open("r", encoding="utf-8") as f:
+                    return json.load(f)
+            except FileNotFoundError:
+                # If still not found, return empty dict but log the issue
+                print(f"Warning: FDA categories file not found at {fda_json_path}")
+                print(f"Current working directory: {pathlib.Path.cwd()}")
+                print(f"Script location: {pathlib.Path(__file__).resolve()}")
+                return {}
     
     def classify_product(
         self, 
