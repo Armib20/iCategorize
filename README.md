@@ -168,7 +168,7 @@ MAX_BATCH_SIZE=100
 | **Accuracy** | 90%+ on standard food products |
 | **Processing Speed** | ~2-3 seconds per product (hybrid mode) |
 | **Batch Throughput** | 100+ products efficiently processed |
-| **Coverage** | 500+ FDA categories supported |
+| **Coverage** | 138 FDA categories supported |
 | **Confidence Scoring** | Reliability metrics for each classification |
 
 ## 🔍 FDA Categories Supported
