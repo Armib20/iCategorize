@@ -6,24 +6,21 @@ import os
 from datetime import datetime
 import json
 
-# Import agent functionality
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from core import ProductClassificationAgent, ClassificationResult
+# Corrected import for the new structure
+from icategorize.fda_classifier import SimplifiedProductClassificationAgent, classify_llm_hybrid
+from icategorize.fda_classifier.agent import ClassificationResult # Agent still uses this
 
 # Configure page
 st.set_page_config(
-    page_title="FDA Product Classification Assistant",
+    page_title="FDA Product Classifier",
     page_icon="🏷️",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
 # Initialize session state
-if 'agent' not in st.session_state:
-    st.session_state.agent = ProductClassificationAgent(
+if 'classification_agent' not in st.session_state:
+    st.session_state.classification_agent = SimplifiedProductClassificationAgent(
         model="gpt-4o",
         enable_learning=True
     )
@@ -75,7 +72,7 @@ def classify_products_with_ground_truth(
         status_text.text(f"Classifying: {product}")
         
         # Get classification result
-        result = st.session_state.agent.classify_product(
+        result = st.session_state.classification_agent.classify_product(
             product, 
             explain=kwargs.get('include_reasoning', True),
             method=kwargs.get('classification_method', 'hybrid')
@@ -171,7 +168,7 @@ def classify_products_from_data(products: List[str]) -> List[ClassificationResul
     
     for i, product in enumerate(products):
         status_text.text(f"Classifying: {product}")
-        result = st.session_state.agent.classify_product(product, explain=True)
+        result = st.session_state.classification_agent.classify_product(product, explain=True)
         results.append(result)
         progress_bar.progress((i + 1) / len(products))
     
@@ -252,8 +249,8 @@ def main():
             index=0
         )
         
-        if model_choice != st.session_state.agent.model:
-            st.session_state.agent = ProductClassificationAgent(
+        if model_choice != st.session_state.classification_agent.model:
+            st.session_state.classification_agent = SimplifiedProductClassificationAgent(
                 model=model_choice,
                 enable_learning=True
             )
@@ -287,19 +284,18 @@ def main():
         
         # Statistics
         st.header("📊 Session Stats")
-        stats = st.session_state.agent.get_stats()
+        stats = st.session_state.classification_agent.get_stats()
         st.metric("Products Classified", len(st.session_state.classification_results))
         st.metric("Chat Messages", len(st.session_state.chat_history))
         
         # Clear session
-        if st.button("Clear Session", type="secondary"):
+        if st.button("Reset Session", use_container_width=True):
             st.session_state.chat_history = []
             st.session_state.classification_results = []
-            st.session_state.agent = ProductClassificationAgent(
+            st.session_state.classification_agent = SimplifiedProductClassificationAgent(
                 model=model_choice,
                 enable_learning=True
             )
-            st.rerun()
     
     # Main content tabs
     tab1, tab2 = st.tabs(["💬 Chat Assistant", "📄 Document Upload"])
@@ -337,7 +333,7 @@ def main():
             
             # Get agent response
             with st.spinner("Thinking..."):
-                response = st.session_state.agent.chat(prompt)
+                response = st.session_state.classification_agent.chat(prompt)
             
             # Add assistant response to history
             assistant_message = {

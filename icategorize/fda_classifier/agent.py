@@ -10,10 +10,11 @@ import json
 import uuid
 from datetime import datetime
 from typing import Dict, List, Optional, Any, Tuple
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import pathlib
-
-from .classifier import classify_llm_hybrid, classify_llm_semantic
+import os
+import openai
+from .classifier import classify_llm_hybrid, classify_llm_semantic, classify_llm
 
 # Try multiple possible paths for the FDA categories file
 def _get_fda_json_path():
@@ -84,11 +85,19 @@ class SimplifiedProductClassificationAgent:
         # Load FDA categories for reference
         self.fda_categories = self._load_fda_categories()
         
-    def _load_fda_categories(self) -> Dict[str, List[str]]:
+    def _load_fda_categories(self, fda_data_path: Optional[str] = None):
         """Load FDA categories and descriptions."""
-        # First try the global FDA_JSON path
+        if fda_data_path:
+            fda_path = pathlib.Path(fda_data_path)
+        else:
+            # Default path relative to the project root
+            fda_path = pathlib.Path("data/fda_categories.json")
+
+        if not fda_path.exists():
+            raise FileNotFoundError(f"FDA data file not found at {fda_path}")
+
         try:
-            with FDA_JSON.open("r", encoding="utf-8") as f:
+            with fda_path.open("r", encoding="utf-8") as f:
                 return json.load(f)
         except FileNotFoundError:
             # Try to find the file again with fresh path resolution
