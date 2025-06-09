@@ -1,14 +1,9 @@
-[global]
-# Streamlit configuration for iCategorize FDA Classification App
-
-# Better performance for our app
-dataFrameSerialization = "arrow"
-
 [server]
 # Server configuration
 maxUploadSize = 200
-enableCORS = false
-enableXsrfProtection = true
+# Remove CORS/XSRF conflict - let Streamlit handle defaults
+# enableCORS = false
+# enableXsrfProtection = true
 
 [client]
 # Client configuration
